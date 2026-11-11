@@ -1,0 +1,11 @@
+name = "tolong-jangan-diblokir-api"
+main = "backend/worker.js"
+compatibility_date = "2026-11-11"
+
+[vars]
+GEMINI_API_KEY = ""
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tolong-jangan-diblokir"
+database_id = ""
