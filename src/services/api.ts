@@ -1,6 +1,6 @@
 ﻿import type { GameState, NindiResponse } from "@/types";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8787";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://tolong-jangan-diblokir.tenzou-dev.workers.dev";
 
 export const sendMessageToNindi = async (
   playerMessage: string,
