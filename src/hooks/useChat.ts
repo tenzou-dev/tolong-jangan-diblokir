@@ -11,23 +11,37 @@ export const INITIAL_GAME_STATE: GameState = {
 export const INITIAL_MESSAGES: ChatMessage[] = [
   {
     id: "msg_1",
-    text: "halo.. kamu ada disana?",
+    text: "hai, nanti malam ya jan diblokir, aku butuh bantuan…",
     sender: "nindi",
-    timestamp: "09:12",
+    timestamp: "23:42",
     status: "read",
   },
   {
     id: "msg_2",
-    text: "hai nindi, aku di sini. kamu di mana?",
+    text: "eh, siapa ini? aku ngga kenal kamu..",
     sender: "player",
-    timestamp: "09:13",
+    timestamp: "23:43",
     status: "read",
   },
   {
     id: "msg_3",
-    text: "aku di gedung kampus.. gelap banget, tidak ada orang disini.. tolong jangan diblokir ya",
+    text: "eh? kamu ngga ada nama aku di kontak? aku nindi..",
     sender: "nindi",
-    timestamp: "09:14",
+    timestamp: "23:44",
+    status: "read",
+  },
+  {
+    id: "msg_4",
+    text: "maaf, aku ngga ada temen yang namanya nindi. salah nomer nih",
+    sender: "player",
+    timestamp: "23:45",
+    status: "read",
+  },
+  {
+    id: "msg_5",
+    text: "tolong jangan diblokir ya.. aku di gedung kampus yang gelap, ngga ada orang, aku takut banget..",
+    sender: "nindi",
+    timestamp: "23:46",
     status: "read",
   },
 ];
@@ -98,7 +112,7 @@ export const useChat = () => {
         setTimeout(() => {
           stopTyping();
           addNindiMessage(
-            "maaf ya.. aku masih nangis disini. kamu bisa bantu aku?"
+            "tolong.. aku takut banget disini. tolong bantu aku.."
           );
         }, 2500);
       } catch (err) {
