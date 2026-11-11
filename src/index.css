@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    WhatsApp Android Dark Mode Clone - CSS
    Game: "Tolong, Jangan Diblokir"
    ============================================ */
@@ -30,9 +30,7 @@
 html, body, #root { width: 100%; height: 100vh; background-color: var(--wa-bg); color: var(--wa-text-primary); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; overflow: hidden; -webkit-tap-highlight-color: transparent; }
 body { display: flex; flex-direction: column; }
 .app-wrapper { width: 100%; height: 100vh; overflow: hidden; }
-/* ============================================
-   GAME MENU (Opening Screen)
-   ============================================ */
+/* GAME MENU */
 .game-menu {
   width: 100%;
   height: 100vh;
@@ -74,9 +72,7 @@ body { display: flex; flex-direction: column; }
 .menu-links { display: flex; flex-direction: column; gap: 10px; }
 .btn-link { background: transparent; border: none; color: var(--wa-text-secondary); font-size: 13px; cursor: pointer; padding: 6px 0; text-align: left; transition: color 0.2s; }
 .btn-link:hover { color: var(--wa-text-primary); text-decoration: underline; }
-/* ============================================
-   WHATSAPP CONTAINER
-   ============================================ */
+/* WHATSAPP CONTAINER */
 .whatsapp-container {
   display: flex;
   flex-direction: column;
@@ -107,9 +103,7 @@ body { display: flex; flex-direction: column; }
 .icon-button:hover { opacity: 1; }
 .menu-button { width: 24px; height: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--wa-text-primary); opacity: 0.7; cursor: pointer; border: none; background: transparent; padding: 0; }
 .menu-dot { width: 3px; height: 3px; background-color: currentColor; border-radius: 50%; }
-/* ============================================
-   CHAT AREA
-   ============================================ */
+/* CHAT AREA */
 .chat-area { flex: 1; overflow-y: auto; padding: 20px 16px 10px; display: flex; flex-direction: column; gap: 12px; background-color: var(--wa-bg); background-attachment: local; }
 .chat-area::-webkit-scrollbar { width: 6px; }
 .chat-area::-webkit-scrollbar-track { background: transparent; }
@@ -140,9 +134,7 @@ body { display: flex; flex-direction: column; }
 .typing-dot:nth-child(2) { animation-delay: 0.2s; }
 .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 @keyframes typingPulse { 0%, 100% { opacity: 0.4; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
-/* ============================================
-   INPUT AREA - FIXED FOR MOBILE
-   ============================================ */
+/* INPUT AREA - FIXED FOR MOBILE */
 .input-area { height: 56px; background-color: var(--wa-bg); padding: 8px 12px; display: flex; align-items: center; gap: 8px; flex-shrink: 0; border-top: 1px solid var(--wa-input-border); position: sticky; bottom: 0; z-index: 100; }
 .input-wrapper { flex: 1; display: flex; align-items: center; background-color: var(--wa-input-bg); border-radius: 26px; border: 1px solid var(--wa-input-border); padding: 0 12px; transition: border-color 0.2s; }
 .input-wrapper:focus-within { border-color: var(--wa-header-hover); outline: none; }
@@ -155,16 +147,12 @@ body { display: flex; flex-direction: column; }
 .send-button:active:not(:disabled) { transform: scale(0.92); }
 .send-button:disabled { background-color: #3a3a3c; cursor: not-allowed; opacity: 0.6; }
 .send-icon { width: 24px; height: 24px; fill: currentColor; }
-/* ============================================
-   EMPTY STATE
-   ============================================ */
+/* EMPTY STATE */
 .empty-chat { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; color: var(--wa-text-secondary); text-align: center; padding: 40px 20px; }
 .empty-chat svg { width: 70px; height: 70px; margin-bottom: 16px; opacity: 0.3; }
 .empty-chat h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--wa-text-primary); }
 .empty-chat p { font-size: 14px; line-height: 1.5; }
-/* ============================================
-   RESPONSIVE MOBILE
-   ============================================ */
+/* RESPONSIVE MOBILE */
 @media (max-width: 480px) {
   .whatsapp-header { height: 52px; padding: 0 8px; }
   .contact-name { font-size: 15px; }
