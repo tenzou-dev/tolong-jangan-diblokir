@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect, useRef } from "react";
-import { ChatMessage, GameState } from "@/types";
+﻿import { useState, useCallback, useEffect, useRef } from "react";
+import type { ChatMessage, GameState } from "@/types";
 
 export const INITIAL_GAME_STATE: GameState = {
   user_id: "player_1",
@@ -40,7 +40,6 @@ export const useChat = () => {
 
   const chatAreaRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when messages change
   useEffect(() => {
     const chatArea = chatAreaRef.current;
     if (chatArea) {
@@ -91,18 +90,13 @@ export const useChat = () => {
     async (text: string) => {
       setInputError(null);
 
-      // Add player message immediately (optimistic)
-      const playerMsg = addPlayerMessage(text);
+      addPlayerMessage(text);
 
-      // Simulate Nindi typing
       const stopTyping = simulateTyping(2500);
 
       try {
-        // TODO: Replace with actual API call to Cloudflare Worker + Gemini
-        // const response = await fetchApi(text, gameState);
         setTimeout(() => {
           stopTyping();
-          // Mock response for now
           addNindiMessage(
             "maaf ya.. aku masih nangis disini. kamu bisa bantu aku?"
           );
@@ -117,7 +111,7 @@ export const useChat = () => {
 
   const updateGameState = useCallback(
     (updates: Partial<GameState>) => {
-      setGameState((prev) => ({ ...prev, ...updates }));
+      setGameState((prev: GameState) => ({ ...prev, ...updates }));
     },
     []
   );

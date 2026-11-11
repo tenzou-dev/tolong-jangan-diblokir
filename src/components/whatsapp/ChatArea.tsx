@@ -1,7 +1,7 @@
-import React from "react";
+﻿import React from "react";
 import { ChatBubble } from "./ChatBubble";
 import { TypingIndicator } from "./TypingIndicator";
-import { ChatMessage } from "@/types";
+import type { ChatMessage } from "@/types";
 
 interface ChatAreaProps {
   messages: ChatMessage[];

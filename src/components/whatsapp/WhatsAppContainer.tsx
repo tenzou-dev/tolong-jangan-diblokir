@@ -1,9 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { WhatsAppHeader } from "./WhatsAppHeader";
 import { ChatArea } from "./ChatArea";
 import { MessageInput } from "./MessageInput";
-import { TypingIndicator } from "./TypingIndicator";
-import { ChatMessage, GameState } from "@/types";
+import type { ChatMessage, GameState } from "@/types";
 
 interface WhatsAppContainerProps {
   messages: ChatMessage[];
@@ -15,7 +14,6 @@ interface WhatsAppContainerProps {
 
 export const WhatsAppContainer: React.FC<WhatsAppContainerProps> = ({
   messages,
-  gameState,
   isNindiTyping,
   onSendMessage,
   onBack,

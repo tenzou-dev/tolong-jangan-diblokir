@@ -1,6 +1,5 @@
-import { ChatMessage, GameState, NindiResponse } from "@/types";
+﻿import type { GameState, NindiResponse } from "@/types";
 
-// API endpoint for Cloudflare Worker (configured in wrangler.toml / .env)
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8787";
 
 export const sendMessageToNindi = async (

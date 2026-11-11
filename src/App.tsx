@@ -1,15 +1,10 @@
-﻿import React, { useState, useCallback, useEffect } from "react";
+﻿import { useCallback, useEffect } from "react";
 import { WhatsAppContainer } from "./components/whatsapp/WhatsAppContainer";
-import { useChat, INITIAL_MESSAGES, INITIAL_GAME_STATE } from "./hooks/useChat";
-import { ChatMessage, GameState } from "./types";
+import { useChat } from "./hooks/useChat";
 import "./index.css";
 
 function App() {
-  const [backButtonVisible, setBackButtonVisible] = useState(false);
-  const [currentChapter, setCurrentChapter] = useState(1);
-  const [gameState, setGameState] = useState<GameState>(INITIAL_GAME_STATE);
-
-  const { messages, isNindiTyping, inputError, sendMessage, updateGameState } = useChat();
+  const { messages, isNindiTyping, inputError, sendMessage } = useChat();
 
   const handleSendMessage = useCallback(
     (text: string) => {
@@ -17,10 +12,6 @@ function App() {
     },
     [sendMessage]
   );
-
-  const handleBack = () => {
-    setBackButtonVisible(false);
-  };
 
   const handleInputError = useCallback(() => {
     if (inputError) {
@@ -36,10 +27,10 @@ function App() {
     <div className="app-wrapper">
       <WhatsAppContainer
         messages={messages}
-        gameState={gameState}
+        gameState={{ user_id: "player_1", current_chapter: 1, panic_level: 3, trust_level: 5 }}
         isNindiTyping={isNindiTyping}
         onSendMessage={handleSendMessage}
-        onBack={handleBack}
+        onBack={() => {}}
       />
     </div>
   );
