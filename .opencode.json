@@ -1,0 +1,100 @@
+{
+  "project": {
+    "name": "Tolong, Jangan Diblokir",
+    "description": "AI-driven interactive text-based horror game - WhatsApp clone chat interface with Gemini API backend on Cloudflare Workers",
+    "version": "1.0.0",
+    "genre": "horror / interactive-fiction / chat-game",
+    "language": "Indonesian",
+    "platform": ["web", "mobile (Capacitor.js later)"]
+  },
+  "tech_stack": {
+    "frontend": {
+      "framework": "React 18 + TypeScript",
+      "build_tool": "Vite 5",
+      "styling": "CSS (WhatsApp Dark Mode clone)",
+      "state_management": "React hooks (useState, useCallback, useEffect, useRef)"
+    },
+    "backend": {
+      "platform": "Cloudflare Workers",
+      "api_gateway": "Google AI Studio / Gemini API",
+      "database": "Cloudflare D1 or KV (planned)"
+    },
+    "deployment": {
+      "frontend": "Cloudflare Pages (auto-deploy from GitHub)",
+      "backend": "Cloudflare Workers (auto-deploy from GitHub)",
+      "repo": "https://github.com/tenzou-dev/tolong-jangan-diblokir"
+    }
+  },
+  "directory_structure": {
+    "root": {
+      "backend/worker.js": "Cloudflare Worker - Gemini API gateway with multi-chapter system prompts",
+      "wrangler.toml": "Cloudflare Workers configuration",
+      "package.json": "Node.js dependencies and scripts",
+      "tsconfig.json": "TypeScript configuration",
+      "tsconfig.app.json": "App TypeScript config with @/* path alias",
+      "vite.config.ts": "Vite build configuration",
+      ".opencode.json": "OpenCode project configuration (this file)"
+    },
+    "src/": {
+      "App.tsx": "Root component - GameMenu <-> WhatsApp routing",
+      "main.tsx": "React entry point",
+      "index.css": "WhatsApp Dark Mode CSS + GameMenu styling + mobile fixes",
+      "vite-env.d.ts": "Type declarations for CSS modules and import.meta.env",
+      "types/index.ts": "TypeScript types (ChatMessage, GameState, Chapter1Ending, NindiResponse)",
+      "hooks/useChat.ts": "Game state, dynamic Nindi responses, ending logic, auto-scroll",
+      "services/api.ts": "API service layer for Cloudflare Worker endpoints",
+      "components/game/GameMenu.tsx": "Opening screen - title, name input, gender selection, Start/Settings/About/Exit",
+      "components/whatsapp/WhatsAppContainer.tsx": "Main WhatsApp layout - header, chat area, input, ending screen",
+      "components/whatsapp/WhatsAppHeader.tsx": "Header - back arrow, Nindi avatar, name, status, call icons, menu",
+      "components/whatsapp/ChatArea.tsx": "Chat message list with date separators and typing indicator",
+      "components/whatsapp/ChatBubble.tsx": "Player (right, green) and Nindi (left, dark grey) message bubbles",
+      "components/whatsapp/TypingIndicator.tsx": "'Nindi sedang mengetik...' animation with 3 pulsing dots",
+      "components/whatsapp/MessageInput.tsx": "Input field with emoji, attachment, camera, and send button",
+      "assets/": "Images and icons"
+    }
+  },
+  "game_story": {
+    "chapter_1": {
+      "title": "The Victim (Kisah Nindi)",
+      "premise": "Nindi trapped in dark empty campus building. Player chats with her via WhatsApp-like interface. Initially wrong number, then she asks for help.",
+      "endings": [
+        { "id": "survived", "description": "Nindi escapes, will contact player in Chapter 2" },
+        { "id": "missing", "description": "Nindi disappears, entity uses her number" },
+        { "id": "possessed", "description": "Entity fully controls Nindi, messages are not human anymore" }
+      ],
+      "state_variables": ["panic_level (1-10)", "trust_level (1-10)"]
+    },
+    "chapter_2": {
+      "title": "The Observer (Kisah Dimas)",
+      "premise": "New character Dimas (IT staff / night guard) chats with player. Depending on Chapter 1 ending, either Nindi contacts him or the entity uses Nindi's number."
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "environment_variables": {
+    "VITE_API_URL": "Cloudflare Worker URL (e.g. https://namworker.workers.dev)",
+    "GEMINI_API_KEY": "Google AI Studio API key (set in Cloudflare dashboard, NOT in frontend)"
+  },
+  "setup_steps": {
+    "1": "Create GitHub repo and push this project",
+    "2": "Connect Cloudflare Pages to GitHub repo (build command: npm install && npm run build, output dir: dist)",
+    "3": "Deploy Cloudflare Worker from backend/worker.js",
+    "4": "Add GEMINI_API_KEY to Cloudflare Pages environment variables",
+    "5": "Update VITE_API_URL in src/services/api.ts with deployed Worker URL",
+    "6": "Commit and push for auto-deploy"
+  },
+  "mobile_input_fix": {
+    "issue": "Chat input not visible on mobile browsers",
+    "solution": "input-area uses position: sticky; bottom: 0; container uses height: 100dvh"
+  },
+  "notes": [
+    "TypeScript compilation must pass before deploying to Cloudflare Pages",
+    "Vite v5 recommended (v8 has rolldown native binding issues on some Windows environments)",
+    "GEMINI_API_KEY must be set in Cloudflare dashboard, never in frontend code",
+    "Auto-deploy triggers on every git push to main branch"
+  ]
+}
